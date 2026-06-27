@@ -19,34 +19,7 @@
     </style>
     <div id="filters">
         <div class="filter">
-            <div><i class="fa-solid fa-fire"></i></div>
-            <p>Trending</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-bed"></i></div>
-            <p>Rooms</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-city"></i></div>
-            <p>Iconic cities</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-person-swimming"></i></div>
-            <p>Pool</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-umbrella-beach"></i></div>
-            <p>Beach</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-suitcase"></i></div>
-            <p>Vacation</p>
-        </div>
-        <div class="filter">
-            <div>And Many More...</div>
-        </div>
-        <div class="filter ms-auto">
-            <div>From Bookings to Belongings, we've got you covered!</div>
+            <div>Because Every Memory deserves to be remembered!</div>
         </div>
         
     </div>
@@ -55,11 +28,11 @@
        <a href="/listings/<%= listing._id %>" style="text-decoration: none; color: black;">
         <div class="card col" >
         <img src="<%= listing.image.url %>" class="card-img-top" alt="..." style="height: 20rem;">
-        <div class="card-img-overlay"><%= listing.description %></div>
+        <div class="card-img-overlay">By: <%= listing.owner.username %></div>
         <div class="card-body">
             <p class="card-text">
                 <b><%= listing.title %></b> <br>
-                &#8377 <%= listing.price.toLocaleString("en-IN") %> /night
+                <%= listing.date.toLocaleDateString("en-IN") %>
             </p>
         </div>
         </div>

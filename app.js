@@ -41,20 +41,19 @@ app.use(methodOverride('_method'));
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, 'public')));
 
-const store = MongoStore.create({
+/*const store = MongoStore.create({
     mongoUrl: dburl,
     crypto: {
         secret: process.env.SECRET
     },
     touchAfter: 24 * 60 * 60 // 1 day
-});
+});*/
 
-store.on("error", ()=>{
+/*store.on("error", ()=>{
     console.log("Session store error", err);
-});
+});*/
 
 const sessionOptions = {
-    store,
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,

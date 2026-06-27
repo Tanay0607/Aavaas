@@ -18,7 +18,7 @@ router.post('/signup', wrapAsync(async (req, res) =>{
             if(err){
                 return next(err);
             }
-            req.flash('success', 'Welcome to Aavaas!');
+            req.flash('success', 'Welcome to Memoryलोक!');
             res.redirect('/listings');
         })
         
@@ -34,7 +34,7 @@ router.get('/login', (req, res) =>{
 })
 
 router.post('/login', saveRedirectUrl, passport.authenticate("local", {failureRedirect: '/login', failureFlash: true}), wrapAsync(async (req, res) =>{
-    req.flash('success', 'Welcome back to Aavaas!');
+    req.flash('success', 'Welcome back to Memoryलोक!');
     res.redirect(res.locals.redirectUrl || '/listings');
 
 }));

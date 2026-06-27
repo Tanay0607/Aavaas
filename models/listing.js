@@ -17,7 +17,7 @@ const listingSchema = new Schema({
         default: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1170&auto=format&fit=crop"
         }
     },
-    price : Number,
+    date : Date,
     location : String,
     country : String,
     reviews:[

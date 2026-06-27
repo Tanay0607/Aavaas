@@ -1,7 +1,7 @@
 <% layout("/layouts/bolierplate") %>
 <body>
     <br>
-    <h3>Edit Listing</h3>
+    <h3>Edit Your Blog</h3>
     <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
@@ -23,10 +23,10 @@
         </div>
         <div class="row">
             <div class="mb-3 col-md-4">
-                <label for="price" class="form-label">Price</label>
-                <input type="number" name="listing[price]" value="<%= listing.price %>" class="form-control" required>
+                <label for="date" class="form-label">Date</label>
+                <input type="date" name="listing[date]" value="<%= listing.date %>" class="form-control" required>
                 <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">Please provide a valid price.</div>
+                <div class="invalid-feedback">Please provide a valid date.</div>
             </div>
             <div class="mb-3 col-md-8">
                 <label for="country" class="form-label">Country</label>

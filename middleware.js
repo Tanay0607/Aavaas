@@ -7,7 +7,7 @@ const { listingSchema, reviewSchema } = require('./schemaValidation.js');
 module.exports.isLoggedIn = (req, res, next) => {
     if(!req.isAuthenticated()){
         req.session.redirectUrl = req.originalUrl;
-        req.flash('error', 'You must be logged in to create a new listing');
+        req.flash('error', 'You must be logged in to create a new blog');
         return res.redirect('/login');
     }
     next();
@@ -24,7 +24,7 @@ module.exports.isOwner = async (req, res, next) =>{
     let {id} = req.params;
     let listing = await Listing.findById(id);
     if(res.locals.currUser && !listing.owner._id.equals(res.locals.currUser._id)){
-        req.flash('error', 'You do not have permission to edit this listing');
+        req.flash('error', 'You do not have permission to edit this blog');
         return res.redirect(`/listings/${id}`);
     }
 
@@ -53,7 +53,7 @@ module.exports.isReviewOwner = async (req, res, next) =>{
     let {id , reviewId} = req.params;
     let review = await Review.findById(reviewId);
     if(res.locals.currUser && !review.author._id.equals(res.locals.currUser._id)){
-        req.flash('error', 'You do not have permission to delete this review');
+        req.flash('error', 'You do not have permission to delete this comment');
         return res.redirect(`/listings/${id}`);
     }
 
