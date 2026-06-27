@@ -1,0 +1,90 @@
+<% layout("/layouts/bolierplate") %>
+<div class="row">
+    <div class="col-8 offset-2">
+
+    
+<body>
+    <br>
+    <h3><b><%= listing.title %></b></h3>
+    <br>
+    <div class="card">
+        <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="...">
+        <div class="card-body">
+            <p class="card-text">
+                <p style="font-style: italic;"> Owned By: <b><%= listing.owner.username %></b></p>
+                <p style="font-size: 1.2rem;"><%= listing.description %></p>
+                <p style="font-size: 1.1rem; font-weight: 600;">&#8377 <%= listing.price.toLocaleString("en-IN") %>/night</p>
+                <p><%= listing.location %> <br> <%= listing.country %></p>
+            </p>
+        </div>
+    </div>
+    <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
+        <div class="btn-2">
+            <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark" style="background-color: #fe424d; border: none; margin-bottom: 1rem; ">Edit</a>
+            <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+                <button type="submit" class="btn btn-dark" style="background-color: #fe424d; border: none; margin-bottom: 1rem; ">Delete</button>
+            </form>
+        </div>
+    <% } %>
+    <hr/>
+    <div class="">
+        <% if(currUser) { %>
+        <h4>Leave a Review</h4>
+        <form action="/listings/<%= listing._id %>/reviews" method="POST" novalidate class="needs-validation">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="review[rating]" id="inlineRadio1" value="1" required>
+                <label class="form-check-label" for="inlineRadio1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="review[rating]" id="inlineRadio2" value="2">
+                <label class="form-check-label" for="inlineRadio2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="review[rating]" id="inlineRadio3" value="3">
+                <label class="form-check-label" for="inlineRadio3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="review[rating]" id="inlineRadio4" value="4">
+                <label class="form-check-label" for="inlineRadio4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="review[rating]" id="inlineRadio5" value="5">
+                <label class="form-check-label" for="inlineRadio5">5</label>
+            </div>
+            <div>
+                <label for="comment" class="form-label">Comment</label>
+                <textarea id="comment" name="review[comment]" rows="4" cols="50" class="form-control" required></textarea>
+                <div class="invalid-feedback">
+                    Please enter a comment.
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-dark" style="background-color: #fe424d; border: none; margin-bottom: 1rem; ">Submit</button>
+        </form>
+        <hr/>
+        <% } %>
+        
+        <h5>All Reviews</h5>
+        <div class="row row-cols-1 row-cols-md-2">
+        <% for(let review of listing.reviews) { %>
+                <div class="review-card col" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="margin-bottom: 0.5rem;"> @<%= review.author.username %> </h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary"><%=review.rating%> <i class="fa-solid fa-star" style="color: #ffc107;"></i></h6>
+                        <p class="card-text"><%=review.comment%></p>
+                        <% if(currUser && currUser._id.equals(review.author._id)) { %>
+                        <form method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                            <button class="btn btn-dark" style="background-color: #fe424d; border: none; margin-bottom: 1rem; ">Delete</button>
+                        </form>
+                        <% } %>
+                    </div>
+                </div>
+
+            <% } %>
+        
+        </div>
+    </div>
+    </div>
+    
+</div>
+</body>

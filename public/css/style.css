@@ -1,0 +1,116 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+.container{
+    flex: 1;
+}
+
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-regular{
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    color: #fe424d;
+    text-decoration: underline;
+}
+
+.f-info-links{
+    width: 100%;
+    
+}
+
+.f-info-socials i{
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    
+}
+
+.f-info-socials{
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.f-info-copyright:hover{
+    color: #fe424d;
+    
+
+}
+
+.f-info-socials i:hover{
+    color: #fe424d;
+    
+
+}
+
+.f-info{
+    height: 8rem;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly; 
+    text-align: center; 
+}
+
+.card{
+    border: none !important;
+    margin-bottom: 2rem; 
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0rem !important;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.4;
+    background-color: white;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.show-img{
+    height: 50vh;
+    object-fit: cover;
+}
+
+.btn-2{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.review-card{
+    border: solid 1px #dee2e6 !important;  
+    border-radius: 0.5rem !important;
+    margin-bottom: 2rem;
+    margin-right: 1rem; 
+}
